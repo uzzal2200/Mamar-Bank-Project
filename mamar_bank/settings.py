@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import dj_database_url
 import environ
 env = environ.Env()
 environ.Env.read_env()
@@ -36,7 +35,8 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['https://mamar-bank.onrender.com','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://libraray-management.onrender.com','https://*.127.0.0.1']
+
 
 
 # Application definition
@@ -88,12 +88,12 @@ WSGI_APPLICATION = 'mamar_bank.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 
@@ -107,13 +107,13 @@ WSGI_APPLICATION = 'mamar_bank.wsgi.application'
 #         'PORT': env("DB_PORT"),
 #     }
 # }
-DATABASES = {
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgresql://mamarbank_hgei_user:76yYgLuzarFqMooy6oPt7Ea5wZhxoeD6@dpg-cqneko08fa8c73apfp00-a.oregon-postgres.render.com/mamarbank',
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         # Replace this value with your local database's connection string.
+#         default='postgresql://mamarbank_hgei_user:76yYgLuzarFqMooy6oPt7Ea5wZhxoeD6@dpg-cqneko08fa8c73apfp00-a.oregon-postgres.render.com/mamarbank',
         
-    )
-}
+#     )
+# }
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
